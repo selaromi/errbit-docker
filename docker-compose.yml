@@ -1,0 +1,14 @@
+mongodb:
+  image: mongo:latest
+  ports:
+    - "27017:27017"
+
+errbit:
+  image: griff/errbit
+  volumes:
+    - .:/errbit
+  ports:
+    - "3000:3000"
+  links:
+    - mongodb:mongodb
+
